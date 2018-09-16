@@ -7,7 +7,7 @@ from math import sin, pi
 from random import random
 
 
-def circle_dance(population=11, resolution=480, loops=1, flip=0, lines=0):
+def circle_dance(population=6, resolution=480, loops=1, flip=0, lines=1):
     population = int(population)
     resolution = int(resolution)
     radius = 250
@@ -38,7 +38,7 @@ def make_dancer(dancer, i, population):
     dancer.setheading(i / population * 180)
     dancer.color(random_turtle_colour())
     dancer.penup()
-    dancer.shape('turtle')
+    dancer.shape('circle')
     dancer.turtlesize(2)
 
 
