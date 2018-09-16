@@ -6,7 +6,7 @@ def postfix(word):
   return word + ' is great!'
 
 
-animal = 'rabit'
+animal = 'rabbit'
 
 print(prefix(animal))
 print(postfix(animal))
