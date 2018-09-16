@@ -14,7 +14,7 @@ import sys
 import turtle
 import random
 
-CELL_SIZE = 10  # Measured in pixels
+CELL_SIZE = 6  # Measured in pixels
 
 
 class LifeBoard:
@@ -127,9 +127,26 @@ class LifeBoard:
                 turtle.left(90)
             turtle.end_fill()
 
+    def box(self):
+        turtle.penup()
+        turtle.setpos(0, 0)
+        turtle.color('plum')
+        turtle.pendown()
+        turtle.begin_fill()
+        turtle.setheading(0)
+        turtle.forward(CELL_SIZE * self.xsize - 1)
+        turtle.left(90)
+        turtle.forward(CELL_SIZE * self.ysize - 1)
+        turtle.left(90)
+        turtle.forward(CELL_SIZE * self.xsize - 1)
+        turtle.left(90)
+        turtle.forward(CELL_SIZE * self.ysize - 1)
+        turtle.end_fill()
+
     def display(self):
         """Draw the whole board"""
         turtle.clear()
+        self.box()
         for i in range(self.xsize):
             for j in range(self.ysize):
                 self.draw(i, j)
@@ -168,7 +185,12 @@ def main():
 
     scr = turtle.Screen()
     turtle.mode('standard')
+
     xsize, ysize = scr.screensize()
+    xsize = CELL_SIZE * (xsize // CELL_SIZE)
+    ysize = CELL_SIZE * (ysize // CELL_SIZE)
+    scr.screensize(xsize, ysize)
+
     turtle.setworldcoordinates(0, 0, xsize, ysize)
 
     turtle.hideturtle()
@@ -176,7 +198,7 @@ def main():
     turtle.tracer(0, 0)
     turtle.penup()
 
-    board = LifeBoard(xsize // CELL_SIZE, 1 + ysize // CELL_SIZE)
+    board = LifeBoard(xsize // CELL_SIZE - 1, ysize // CELL_SIZE - 1)
 
     # Set up mouse bindings
     def toggle(x, y):
