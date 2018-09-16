@@ -1,6 +1,6 @@
 from turtle import *
 
-speed(20)
+speed(5)
 color('red', 'yellow')
 begin_fill()
 
