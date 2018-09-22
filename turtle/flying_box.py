@@ -15,15 +15,19 @@ screen.tracer(0)
 
 nikki = Turtle(visible=False)
 nikki.speed(0)
-nikki.color('purple', 'purple')
+nikki.color('purple', 'yellow')
+nikki.pensize(4)
 
 while True:
 
     # fly box towards us
     for i in range(1, size, step):
         nikki.clear()
+
+        nikki.penup()
         nikki.setx(-i / 2)
         nikki.sety(-i / 2)
+        nikki.pendown()
 
         nikki.begin_fill()
         nikki.forward(i)
@@ -44,8 +48,11 @@ while True:
         j = size - i
 
         nikki.clear()
+
+        nikki.penup()
         nikki.setx(-j / 2)
         nikki.sety(-j / 2)
+        nikki.pendown()
 
         nikki.begin_fill()
         nikki.forward(j)
