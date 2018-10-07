@@ -3,17 +3,19 @@ import turtle
 # setup turtle
 turtle.setup(400, 500)
 wn = turtle.Screen()
-tess = turtle.Turtle()
+
+dima = turtle.Turtle()
+dima.shape('turtle')
 
 # define operations
 def go_forward():
-    tess.forward(30)
+    dima.forward(30)
 
 def turn_left_45():
-    tess.left(45)
+    dima.left(45)
 
 def turn_right_45():
-    tess.right(45)
+    dima.right(45)
 
 def quit():
     wn.bye()
@@ -26,4 +28,4 @@ wn.onkey(quit, "q")
 wn.listen()
 
 # run
-wn.mainloop()
+turtle.mainloop()
